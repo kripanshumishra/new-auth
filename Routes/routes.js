@@ -56,11 +56,11 @@ router.post('/login', async (req,res)=>{
         // console.log(await bcrypt.compare(req.body.password, user.password))
         if (compare){
             let token = jwt.sign({id:user._id,email:user.email},process.env.secret_token,{expiresIn:86400}) //24hr
-            return res.status(200).json({auth:true,token:token})
+            return res.status(200).json({auth:true,token:token , , userInfo:{name:user.name,email:user.email,mobile:user.mobile} })
             // res.status(200).send('user credential right ')
         }
         
-        else res.status(401).json({auth:false,token:'no token',msg:"invalid username or password" , userInfo:{name:user.name,email:user.email,mobile:user.mobile}})
+        else res.status(401).json({auth:false,token:'no token',msg:"invalid username or password" })
         
     }
     catch{
