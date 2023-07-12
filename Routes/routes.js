@@ -60,7 +60,7 @@ router.post('/login', async (req,res)=>{
             // res.status(200).send('user credential right ')
         }
         
-        else res.status(401).json({auth:false,token:'no token',msg:"invalid username or password"})
+        else res.status(401).json({auth:false,token:'no token',msg:"invalid username or password" , userInfo:{name:user.name,email:user.email,mobile:user.mobile}})
         
     }
     catch{
