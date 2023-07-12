@@ -15,8 +15,8 @@ router.use(express.urlencoded({extended:true}))
 router.get('/user', async (req,res)=>{
     console.log('request arrived')
     try{
-        const User= await User.find({})
-        res.send(User)
+        const user= await User.find({})
+        res.send(user)
     }catch(e){
         console.log(e)
     }   
